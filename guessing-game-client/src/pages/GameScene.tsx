@@ -7,7 +7,8 @@ import { CardInfos } from "../utils/cardList";
 import { useHistory } from "react-router-dom";
 import { useLocalStorage, BROWSER_PLAYER, SCORE_STORAGE } from "../utils/customHooks";
 
-const ENDPOINT = "http://localhost:5000";
+//const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://guessing-game-mc.herokuapp.com/";
 const socket = socketIOClient(ENDPOINT);
 
 interface MessageEmitted {
