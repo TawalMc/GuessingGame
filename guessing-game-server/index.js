@@ -21,7 +21,6 @@ const { cardListGenerator, CARD_SIZE } = require("./cardLists");
 
 const app = express();
 app.use(cors());
-app.use(router);
 
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -224,6 +223,8 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../guessing-game-client/build", "index.html"));
   })
+
+  //app.use(router);
 }
 
 
