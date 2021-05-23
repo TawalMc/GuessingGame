@@ -1,5 +1,8 @@
 {
     "name": "guessing-game",
+    "engines": {
+        "node": "14.x"
+      },
     "scripts": {
         "heroku-postbuild": "cd guessing-game-client && npm install && npm install --only-dev --no-shrinkwrap && npm run build",
         "start": "cd guessing-game-server && npm start"
