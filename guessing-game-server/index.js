@@ -218,7 +218,7 @@ io.on(socketChannels.connect, (socket) => {
 /**
  * File serving
  */
-if (process.env.NODE_DEV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../guessing-game-client/build")));
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../guessing-game-client/build", "index.html"));
