@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Paragraph } from "grommet";
 import { MainContainer } from '../components/containers';
 import { CustomBox } from "../components";
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useLocalStorage, BROWSER_PLAYER, SCORE_STORAGE } from "../utils/customHooks";
 
 interface ScoreDisplayProps {
@@ -60,6 +60,10 @@ const GameOver = (): JSX.Element => {
                     margin={{ bottom: "15px" }}
                     focusIndicator={false}
                     style={{ border: "1px black dashed" }} />
+
+                <Link to={{pathname: "https://github.com/TawalMc"}} target="_blank" style={{ textDecoration: "none" }}>
+                    <CustomBox text="My Portfolio" />
+                </Link>
 
                 {/* <Button
                     label="My Github"

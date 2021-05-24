@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Text, TextInput } from "grommet";
 import { MainContainer } from "../components/containers";
-import { CustomBox } from "../components";
+import { CustomBox, MessageModal } from "../components";
 import { tokenGeneratorBasedOnPseudo } from "../utils/tokenManagers";
 import { Link } from "react-router-dom";
 
 const Home = (): JSX.Element => {
+  const msgAI = `\n1- Vous entrez votre pseudo
+    \n2- vous génerez un token (champ "get")
+    \n3- Vous partagez ce token avec un ami qui le colle dans le champ "join"
+    \n4- Vous commencez la partie: chacun essaye de deviner les paires de emoji
+  `
   // State
   const [userPseudo, setUserPseudo] = useState("");
   const [tokenGenerated, setTokenGenerated] = useState("");
   const [tokenJoined, setTokenJoined] = useState("");
-
+  const [showMsgModal, setShowMsgModal] = useState(true);
   // References
   const pseudoInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -43,9 +48,19 @@ const Home = (): JSX.Element => {
     setTokenJoined(e.target.value);
   };
 
+  const okClickAction = () => {
+    setShowMsgModal(false);
+  }
+
   return (
     <MainContainer>
       <Box flex direction="column" align="center" justify="center">
+        <MessageModal 
+          from="Jeu de devinette d'emoji en temps réel"
+          message={msgAI}
+          showMessageModal={showMsgModal}
+          okClickAction={okClickAction}
+        />
         <Box
           flex
           direction="row"
